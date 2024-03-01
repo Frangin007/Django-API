@@ -8,13 +8,14 @@ Python 3.8 ou supérieur
 Installation
 Clonez ce dépôt sur votre machine :
 
-git clone https://github.com/votre_utilisateur/votre_projet.git
+git clone https://github.com/Frangin007/Django-API
 
 Accédez au répertoire du projet :
 
+Créez l'environnement virtuel:
+python -m venv env
 
-
-Lancez l'env virtuel dans git bash (por moi c'est préférable):
+Lancez l'env virtuel dans bash:
 source env/Scripts/activate 
 
 Construisez l'image Docker et lancez les conteneurs :
@@ -36,13 +37,12 @@ Ouvrez un autre git bash et exécutez : docker compose down
 Gestion de la Base de Données
 Vous pouvez accéder à l'interface d'administration de Django en visitant l'URL suivante :
 
-
 http://127.0.0.1:8000/admin     
-
-Les identifiants par défaut sont les suivants :
 
 Créez un superutilisateur en utilisant la commande:
 docker compose run web python manage.py createsuperuser
+
+
 API RESTful
 Les API RESTful sont accessibles à l'URL suivante :
 
