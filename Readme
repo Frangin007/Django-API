@@ -40,7 +40,7 @@ Assurez-vous de créer un fichier `.env` à la racine du projet et de définir c
 POSTGRES_DB=nom_de_la_base_de_donnees
 POSTGRES_USER=nom_utilisateur
 POSTGRES_PASSWORD=mot_de_passe
-POSTGRES_HOST=adresse_de_la_base_de_donnees
+POSTGRES_HOST=nom de service de la base de données
 POSTGRES_PORT=5432
 DB_ENGINE=django.db.backends.postgresql
 DB_NAME=db.sqlite3
