@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enregistrer un livre</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="test/books/" method="post">
+        {% csrf_token %}
+        <h1>Enregistrer un nouveau livre</h1>
+
+        <label for="title">Titre :</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="author">Auteur :</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="description">Description :</label>
+        <textarea id="description" name="description"></textarea>
+
+        <label for="isbn">ISBN :</label>
+        <input type="text" id="isbn" name="isbn" required title="L'ISBN doit contenir 10 ou 13 chiffres">
+
+        <label for="publication_date">Date de publication :</label>
+        <input type="date" id="publication_date" name="publication_date">
+
+        <input type="submit" value="Enregistrer le livre">
+    </form>
+</body>
+</html>
