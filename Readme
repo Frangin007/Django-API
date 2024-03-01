@@ -1,29 +1,60 @@
-Projet de Gestion de Livres
+## Projet de Gestion de Livres
 Ce projet est une application web Django conçue pour gérer une collection de livres. Il utilise PostgreSQL comme base de données et expose des API RESTful grâce à Django REST Framework.
 
 Configuration Requise
 Docker Desktop (pour Windows ou Mac) ou Docker Engine (pour Linux)
 Python 3.8 ou supérieur
 
-Installation
+## Installation
 Clonez ce dépôt sur votre machine :
 
 git clone https://github.com/Frangin007/Django-API
 
-Accédez au répertoire du projet :
+## Accédez au répertoire du projet :
 
-Créez l'environnement virtuel:
+## Créez l'environnement virtuel:
 python -m venv env
 
-Lancez l'env virtuel dans bash:
+## Lancez l'env virtuel dans bash:
 source env/Scripts/activate 
 
-Construisez l'image Docker et lancez les conteneurs :
+## Configuration
+
+Avant de lancer l'application, assurez-vous de configurer les variables d'environnement suivantes :
+
+- `POSTGRES_DB`: Le nom de la base de données PostgreSQL.
+- `POSTGRES_USER`: Le nom d'utilisateur PostgreSQL.
+- `POSTGRES_PASSWORD`: Le mot de passe PostgreSQL.
+- `POSTGRES_HOST`: L'hôte où se trouve la base de données PostgreSQL.
+- `POSTGRES_PORT`: Le port utilisé par PostgreSQL.
+- `DB_ENGINE`: Le moteur de base de données utilisé par Django.
+- `DB_NAME`: Le nom de la base de données SQLite.
+- `SECRET_KEY`: La clé secrète utilisée par Django pour les sessions et le cryptage.
+- `DEBUG`: Indique si le mode de débogage est activé (True ou False).
+- `ALLOWED_HOSTS`: La liste des hôtes autorisés pour l'application.
+
+Assurez-vous de créer un fichier `.env` à la racine du projet et de définir ces variables. 
+
+## Exemple de fichier `.env` :
+
+POSTGRES_DB=nom_de_la_base_de_donnees
+POSTGRES_USER=nom_utilisateur
+POSTGRES_PASSWORD=mot_de_passe
+POSTGRES_HOST=adresse_de_la_base_de_donnees
+POSTGRES_PORT=5432
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=db.sqlite3
+SECRET_KEY=clé_secrète_générée_par_django
+DEBUG=False
+ALLOWED_HOSTS=localhost,127.0.0.1,[::1]
+
+
+## Construisez l'image Docker et lancez les conteneurs :
 
 docker-compose up --build (lors de la première exécution)
 docker-compose up
 
-Accès à l'Application
+## Accès à l'Application
 
 Une fois les conteneurs Docker lancés, vous pouvez accéder à l'application dans votre navigateur web en visitant l'URL suivante :
 
@@ -31,15 +62,12 @@ http://127.0.0.1:8000/ (Ici, j'ai mis en place une petit formulaire html permett
 
 
 
-Arrêt de l'Application :
-Ouvrez un autre git bash et exécutez : docker compose down
-
-Gestion de la Base de Données
+## Gestion de la Base de Données
 Vous pouvez accéder à l'interface d'administration de Django en visitant l'URL suivante :
 
 http://127.0.0.1:8000/admin     
 
-Créez un superutilisateur en utilisant la commande:
+## Créez un superutilisateur en utilisant la commande:
 docker compose run web python manage.py createsuperuser
 
 
@@ -50,6 +78,9 @@ Les API RESTful sont accessibles à l'URL suivante :
 http://127.0.0.1:8000/test/books/search/
 http://127.0.0.1:8000/test/books/
 Vous pouvez utiliser des outils tels que Postman ou cURL pour interagir avec ces API et effectuer des opérations CRUD sur les livres.
+
+## Arrêt de l'Application :
+Ouvrez un autre git bash et exécutez : docker compose down
 
 Configuration Avancée
 Consultez le fichier docker-compose.yml pour des options de configuration avancées telles que les variables d'environnement pour la base de données PostgreSQL ou les ports exposés.

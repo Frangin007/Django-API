@@ -2,7 +2,7 @@ from django.db import models
 
 class Book(models.Model):
     title = models.CharField(max_length=255, db_index = True)
-    author = models.CharField(max_length=255)
+    author = models.CharField(max_length=100, db_index = True)
     description = models.TextField(null=True, blank=True)
     isbn = models.CharField(max_length=20, unique=True)
     published_date = models.DateField(null=True, blank=True)
